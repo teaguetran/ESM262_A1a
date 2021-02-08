@@ -1,0 +1,16 @@
+---
+title: "Introduction"
+author: "Teague Tran"
+date: "2/8/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Hello Naomi and Will! 
+My name is Teague Tran and I am a MESM 2022 student (CP and WRM). I am taking this course because I want to learn more about the field of data science and gain more experience. I believe that data science is an incredibly important part of natural resource management and I strive to learn more about it. I am also interested in the the Tague Team Lab and want to know more about it! :) 
+
+## Data Science Background
+Although I came into Bren with a limited data science background (I only worked in excel and minitab),  I am quickly gaining the skills that I need to wrangle massive amounts of data! R is the first programming language that I have ever learned but I look forward to expanding my knowledge of other languages, such as python or C.
