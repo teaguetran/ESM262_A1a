@@ -1,0 +1,83 @@
+---
+title: "Assignment 3"
+author: "Teague Tran"
+date: "2/27/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(usethis)
+source("calculate_density.R")
+```
+
+What I am trying to do: 
+
+Calculate the density of liquids d= m/V; determine if the liquid is more/less/equally as dense compared to water.
+
+@param mass of liquid (g)
+@param volume of liquid (mL)
+@param density threshold is 1 g/mL
+
+```{r}
+#not sure if I should be placing the function in here or a separate .R file but here it is! The separate R file for calculate_density will be uploaded onto an rmd file too
+# calculate density of unknown liquid
+
+calculate_density <- function(m, V){
+  d = m/V
+}
+
+
+densities <- calculate_density(c(23,4,1,23,4,5,54,4,3,2,3), c(23,2,5,3,4,6,7,5,3,2,5))
+
+density_comparison <- function(d, density_threshold = 1){
+
+  #error checking
+if(length(d) < 10)
+  return("Too little density values")
+  
+if(d <= 0)
+  return("Density can't be negative or 0!!!")
+
+if(d > 9999 )
+  return ("That's too dense!!!")
+  
+ # use a for loop to keep going until we find a substance less dense than water
+
+#use a counter to prevent an infinite loop of high-density liquids
+
+lowerdense_count = 0
+total_count = 0
+#we want to keep the loop going until we either get 10 values or a value that is less than 1 mg/L
+while ( lowerdense_count < 5 &  total_count < 10) {
+  if(d < density_threshold)
+     lowerdense_count = lowerdense_count + 1 & 
+      total_count = total_count + 1
+  else
+    total_count = total_count + 1
+    
+}
+ #display information about the density of the liquid
+
+#compute mean density 
+mean_density = mean(d)
+
+if (lowerdense_count <= 5 & total_count <= 10) {
+  density = case_when (
+  mean_density > 1 ~ "Mean density is denser than water", 
+  mean_density < 1 ~ "Mean density is less dense than water",
+  mean_density = 1 ~ "Mean density is equally as dense as water")
+} else
+  density = "Too little values"
+
+return(density)
+}
+
+density_comparison(d= c(23,4,1,23,4,5,54,4,3,2,3))
+```
+
+
+
+
