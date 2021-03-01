@@ -5,10 +5,10 @@ density_while_loop <- function(d, density_threshold = 1){
 if(length(d) < 10)
   return("Too little density values")
 
-if(d <= 0)
+if(any(d <= 0))
   return("Density can't be negative or 0!!!")
 
-if(d > 9999 )
+if(any(d > 9999 ))
   return ("That's too dense!!!")
 #display information about the density of the liquid
 lowerdense_count = 0
