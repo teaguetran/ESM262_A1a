@@ -5,6 +5,8 @@ date: "2/27/2021"
 output: html_document
 ---
 
+Link to folder: https://github.com/teaguetran/ESM262_A1a/tree/master/Assignment_3_Teague_Tran
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
