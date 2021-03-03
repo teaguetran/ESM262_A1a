@@ -17,7 +17,6 @@ if(any(d > 9999 ))
 #display information about the density of the liquid
 lowerdense_count = 0
 total_count = 1
-#calculate the number of low-density (compared to water) samples
 #we want to keep the loop going until we get 10 values
 while ( (lowerdense_count < 10) && (total_count <= length(d))) {
   if (d[total_count] > density_threshold)

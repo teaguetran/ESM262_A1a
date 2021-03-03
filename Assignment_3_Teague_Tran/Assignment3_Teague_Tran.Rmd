@@ -14,7 +14,7 @@ library(tidyverse)
 library(usethis)
 source("calculate_density.R")
 source("density_comparison.R")
-source("density_while_loop.R")
+source("num_lowdensity.R")
 ```
 
 What I am trying to do: 
@@ -38,11 +38,11 @@ For density_while_loop():
 ```{r}
 
 #check the code to see if they work
-densities <- calculate_density(c(1,2,3,4,5,6,3,4,9,3), c(4,5,3,3,2,3,4,5,4,2))
+densities <- calculate_density(c(1,2,4,5,6,3,4,9,9,10), c(4,5,3,3,2,3,4,5,4,9))
 
 density_comparison(d = densities)
 
-density_while_loop(d = densities)
+num_lowdensity(d = densities)
 ```
 
 

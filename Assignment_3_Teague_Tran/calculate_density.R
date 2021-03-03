@@ -9,7 +9,7 @@ calculate_density <- function(m, V, density_threshold = 1){
     return("Mass can't be negative or 0!!!")
 
   if(any(V <= 0))
-    return ("That's too dense!!!")
+    return ("Volume can't be negative or 0!!!")
 
   d = m/V
   return(d)
