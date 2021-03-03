@@ -3,7 +3,7 @@
 #@param density threshold (water) = 1 g/mL
 
 
-density_comparison <- function(d){
+density_comparison <- function(d, density_threshold = 1){
 
   #error checking
   if(length(d) < 10)
@@ -15,22 +15,18 @@ density_comparison <- function(d){
   if(any(d > 9999))
     return ("That's too dense!!!")
 
-  # use a for loop to keep going until we find a substance less dense than water
 
-  #use a counter to prevent an infinite loop of high-density liquids
-
-  #display information about the density of the liquid
+  #display information to compare mean density of liquids to water
 
   #compute mean density
   mean_density = mean(d)
 
   density = case_when (
-    mean_density > 1 ~ "Mean density is denser than water",
-    mean_density < 1 ~ "Mean density is less dense than water",
-    mean_density = 1 ~ "Mean density is equally as dense as water")
+    mean_density > density_threshold ~ "Mean density is denser than water",
+    mean_density < density_threshold ~ "Mean density is less dense than water",
+    mean_density == density_threshold ~ "Mean density is equally as dense as water")
 
-  return(density)
+  return(sprintf("%f g/mL, %s", mean_density, density))
 }
-
 
 

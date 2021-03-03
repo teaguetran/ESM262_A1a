@@ -36,14 +36,9 @@ For density_while_loop():
 @param density threshold = 1 g/mL
 
 ```{r}
-# calculate density of unknown liquid
 
-calculate_density <- function(m, V){
-  d = m/V
-}
-
-
-densities <- calculate_density(c(23,4,1,23,4,5,54,4,3,2,3), c(23,2,5,3,4,6,7,5,3,2,5))
+#check the code to see if they work
+densities <- calculate_density(c(1,2,3,4,5,6,3,4,9,3), c(4,5,3,3,2,3,4,5,4,2))
 
 density_comparison(d = densities)
 

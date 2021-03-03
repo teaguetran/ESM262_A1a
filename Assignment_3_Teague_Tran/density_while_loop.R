@@ -1,3 +1,6 @@
+# use a for loop to keep going until we find a substance less dense than water
+
+#use a counter to prevent an infinite loop of high-density liquids
 
 density_while_loop <- function(d, density_threshold = 1){
 
@@ -10,18 +13,22 @@ if(any(d <= 0))
 
 if(any(d > 9999 ))
   return ("That's too dense!!!")
+
 #display information about the density of the liquid
 lowerdense_count = 0
-total_count = 0
-#we want to keep the loop going until we either get 10 values or a value that is less than 1 mg/L
-while ( lowerdense_count < 5 & total_count < 10) {
-  if(d < density_threshold)
-    lowerdense_count = lowerdense_count + 1 &
-      total_count = total_count + 1
-      else
-      total_count = total_count + 1
+total_count = 1
+#we want to keep the loop going until we get 10 values
+while ( (lowerdense_count < 10) && (total_count <= length(d))) {
+  if (d[total_count] > density_threshold)
+    # we have another day with greater than 10 so accumulate
+    lowerdense_count = lowerdense_count+1
+  else
+    # we have to start over
+    lowerdense_count = lowerdense_count
+  # remember with while loops we need to increment our counter
+  total_count = total_count+1
 }
-return("The amount of samples with densities less than water:")
-return(length(lowerdense_count))
+return(sprintf("The amount of samples with densities less than water: %d", lowerdense_count))
+
 }
 
